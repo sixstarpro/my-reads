@@ -12,33 +12,12 @@ class SearchBooks extends Component {
         onUpdateShelf: PropTypes.func.isRequired
     }
 
-    // state = {
-    //     query: ''
-    // }
-
-    // updateQuery = (query) => {
-    //     this.setState({ query: query })
-    //     this.props.onSearch(query)
-    // }
-    // callSearch = (term) => {
-    //     let searchBooks
-    //     searchBooks = this.onSearch(term)
-    // }
     getCurrentShelf = ( id ) => {
         this.props.getShelf(id)
+        console.log(this.props.getShelf(id));
     }
     render() {
         const { searchData, onSearch, onUpdateShelf, getShelf } = this.props
-        // const { query } = this.state
-        
-        // let searchBooks
-        // if (query) {
-        //     searchBooks = searchData.map((data) => data.id )
-        //     console.log('searchBooks: ' + searchBooks)
-        // }
-        // getShelf('EmOGpdzhITIC')
-        // searchBooks = onSearch('basketball')
-        // this.callSearch('basketball')
         
         return (
             <div className="search-books">
@@ -56,7 +35,6 @@ class SearchBooks extends Component {
                         <input
                             type="text"
                             placeholder="Search by title or author"
-                            // value={query}
                             onChange={(e) => onSearch(e.target.value)}
                         />
 
@@ -73,7 +51,7 @@ class SearchBooks extends Component {
                                         <div className="book-shelf-changer">
                                             <select
                                                 onChange={(e) => onUpdateShelf(books, e.target.value)}
-                                                value={this.getCurrentShelf(books.id)}
+                                                value={getShelf(books.id)}
                                             >
                                                 <option value="" disabled>Move to...</option>
                                                 <option value="currentlyReading">Currently Reading</option>
@@ -89,7 +67,6 @@ class SearchBooks extends Component {
                                     )) : ''}
                                     </div>
                                 </div>
-                                <button onClick={() => getShelf(books.id)}>Click</button>
                             </li>
                         ))}
                     </ol>

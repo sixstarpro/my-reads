@@ -23,8 +23,6 @@ class BooksApp extends React.Component {
       if(searchData !== undefined && searchData.length > 0) {
         this.setState({ searchData })
       } else {
-        console.log('no data')
-
         this.setState((state) => ({
             searchData: []
         }))
@@ -33,15 +31,10 @@ class BooksApp extends React.Component {
     })
   }
 
-  // updateShelf = (book) => {
-  //   this.setState({})
-  // }
   getBookById(bookID) {
     let bookShelf
     BooksAPI.get(bookID).then((book) => {
-      // console.log(book.shelf + book.title)
       bookShelf = book.shelf
-      console.log(  bookShelf  )
       return bookShelf
     })
   }

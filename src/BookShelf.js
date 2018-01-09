@@ -8,35 +8,9 @@ class BookShelf extends Component {
         onUpdateShelf: PropTypes.func.isRequired
     }
 
-    // state = {
-    //     query: ''
-    // }
-
-    // updateQuery = (query) => {
-    //     this.setState({ query: query.trim() })
-    // }
-
-    // clearQuery = () => {
-    //     this.setState({ query: '' })
-    // }
-
-    // logShelf = (e) => {
-    //   const values = e
-    //   console.log(values)
-    // }
     render() {
         const { books, onUpdateShelf } = this.props
-        // const { query } = this.state
 
-        // let showingContacts
-        // if (query) {
-        //     const match = new RegExp(escapeRegExp(query), 'i')
-        //     showingContacts = contacts.filter((contact) => match.test(contact.name))
-        // } else {
-        //     showingContacts = contacts
-        // }
-
-        // showingContacts.sort(sortBy('name'))
         function getShelf(shelf) {
           return books.filter(bookShelf => bookShelf.shelf === shelf)
         }
