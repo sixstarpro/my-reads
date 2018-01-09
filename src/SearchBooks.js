@@ -12,10 +12,6 @@ class SearchBooks extends Component {
         onUpdateShelf: PropTypes.func.isRequired
     }
 
-    getCurrentShelf = ( id ) => {
-        this.props.getShelf(id)
-        console.log(this.props.getShelf(id));
-    }
     render() {
         const { searchData, onSearch, onUpdateShelf, getShelf } = this.props
         
