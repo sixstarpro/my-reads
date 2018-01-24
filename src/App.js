@@ -35,16 +35,18 @@ class BooksApp extends React.Component {
     let bookShelf
     BooksAPI.get(bookID).then((book) => {
       bookShelf = book.shelf
-      return bookShelf
+      console.log(  bookShelf  )
     })
+    return bookShelf
   }
 
   updateShelf = (book, shelf) => {
     book['shelf'] = shelf
-    this.setState((state) => ({
-      books: state.books.filter((c) => c.id !== book.id).concat([book])
-    }))
-    BooksAPI.update(book, shelf)
+    BooksAPI.update(book, shelf).then( book => {
+      this.setState((state) => ({
+        books: state.books.filter((b) => b.id !== book.id).concat([book])
+      }))
+    })
   }
 
   render() {
@@ -58,10 +60,10 @@ class BooksApp extends React.Component {
         )} />
         <Route path='/search' render={() => (
           <SearchBooks
+            books={this.state.books}
             searchData={this.state.searchData}
             onSearch={this.searchBooks}
             onUpdateShelf={this.updateShelf}
-            getShelf={this.getBookById}
           />
         )} />
       </div>

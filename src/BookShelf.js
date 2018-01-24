@@ -11,7 +11,7 @@ class BookShelf extends Component {
     render() {
         const { books, onUpdateShelf } = this.props
 
-        function getShelf(shelf) {
+        const getShelf = (shelf) => {
           return books.filter(bookShelf => bookShelf.shelf === shelf)
         }
         return (
@@ -36,7 +36,7 @@ class BookShelf extends Component {
                                   onChange={(e) => onUpdateShelf(books, e.target.value)}
                                   value={books.shelf}
                                 >
-                                  <option value="none" disabled>Move to...</option>
+                                  <option value="" disabled>Move to...</option>
                                   <option value="currentlyReading">Currently Reading</option>
                                   <option value="wantToRead">Want to Read</option>
                                   <option value="read">Read</option>
@@ -69,7 +69,7 @@ class BookShelf extends Component {
                                   onChange={(e) => onUpdateShelf(books, e.target.value)}
                                   value={books.shelf}
                                 >
-                                  <option value="none" disabled>Move to...</option>
+                                  <option value="" disabled>Move to...</option>
                                   <option value="currentlyReading">Currently Reading</option>
                                   <option value="wantToRead">Want to Read</option>
                                   <option value="read">Read</option>
@@ -102,7 +102,7 @@ class BookShelf extends Component {
                                   onChange={(e) => onUpdateShelf(books, e.target.value)}
                                   value={books.shelf}
                                 >
-                                  <option value="none" disabled>Move to...</option>
+                                  <option value="" disabled>Move to...</option>
                                   <option value="currentlyReading">Currently Reading</option>
                                   <option value="wantToRead">Want to Read</option>
                                   <option value="read">Read</option>
