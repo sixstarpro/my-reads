@@ -172,3 +172,11 @@ body, .app {
   text-align: center;
   font-size: 0.8em;
 }
+
+/* No Match */
+
+pre {
+    margin: 18vh auto;
+    font-size: 1.3em;
+    text-align: center;
+}
